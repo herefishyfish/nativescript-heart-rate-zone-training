@@ -13,6 +13,7 @@ import {
   Application,
   CSSType,
   ContentView,
+  CoreTypes,
   GridLayout,
   LoadEventData,
   Utils,
@@ -141,6 +142,7 @@ export class MonitorComponent extends GridLayout {
 
         this.indicator.nativeElement.animate({
           translate: { x: 0, y: position / density },
+          curve: CoreTypes.AnimationCurve.easeInOut,
           duration: 500,
         });
       });
@@ -148,8 +150,8 @@ export class MonitorComponent extends GridLayout {
   }
 
   ngOnInit() {
-    interval(1000).subscribe(() => {
-      let randomChange = Math.floor(Math.random() * 30) + 1;
+    interval(500).subscribe(() => {
+      let randomChange = Math.floor(Math.random() * 3) + 1;
 
       let addOrSubtract = Math.random() > 0.5 ? 1 : -1;
 
