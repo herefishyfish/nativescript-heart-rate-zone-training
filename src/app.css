@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-Button.-primary {
-  font-size: 18;
+.fa {
+  font-family: 'FontAwesome', 'fontawesome-webfont';
+  font-weight: 400;
 }
