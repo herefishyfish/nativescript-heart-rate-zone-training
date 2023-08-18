@@ -36,7 +36,7 @@ const TIMER_INTERVAL = 1000;
         <ns-info
           column="3"
           class="info"
-          [title]="vm.pace | time"
+          [title]="vm.pace | number:'.0-2'"
           icon="&#xf0fb;"
         />
 
@@ -115,7 +115,10 @@ export class AppComponent {
   );
   private pace$ = this.stateService.select().pipe(
     selectSlice(["distance", "time"]),
-    map(({ distance, time }) => distance / time)
+    map(({ distance, time }) => {
+      const timeInMinutes = time / 60000;
+      return timeInMinutes / distance;
+    })
   );
   private distance$ = this.locationService.currentGeoLocation$.pipe(
     pairwise(),
