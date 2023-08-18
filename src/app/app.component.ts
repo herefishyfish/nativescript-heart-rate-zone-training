@@ -129,7 +129,7 @@ export class AppComponent {
         distance(
           [prevLocation.latitude, prevLocation.longitude],
           [currLocation.latitude, currLocation.longitude],
-          { units: "meters" } // Example
+          { units: "kilometers" }
         )
       );
     })
